@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Auth\RegisterController;
 use \App\Http\Controllers\Auth\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,5 +22,9 @@ use \App\Http\Controllers\Auth\DashboardController;
 
 Route::get('/register', [RegisterController::class, 'actionIndex'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/login', [LoginController::class, 'actionIndex'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
+
 
 Route::get('/dashboard', [DashboardController::class, 'actionIndex'])->middleware('auth')->name('dashboard');

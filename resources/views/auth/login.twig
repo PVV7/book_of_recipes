@@ -7,22 +7,15 @@
 
 {% block body %}
     <div class="container">
-        <H1>Регистрация</H1>
+        <H1>Авторизация</H1>
         <div class="login row justify-content-md-center m-0 pt-3">
             <div class="col-lg-4 shadow p-3 mt-5 bg-body rounded">
-                <form action="{{ route('register') }}" method="post" id="form-login">
+                <form action="{{ route('login') }}" method="post" id="form-login">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         {% for error in errors.all() %}
                             <li>{{error}}</li>
                         {% endfor %}
-
-                    <div class="mb-3">
-					    <label for="userName" class="form-label">
-                            Имя
-                        </label>
-                        <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" aria-describedby="userNameHelp">
-                    </div>
 
                     <div class="mb-3">
 					    <label for="email" class="form-label">
@@ -35,15 +28,9 @@
                         <label for="pass" class="form-label">
                             Пароль
                         </label>
-                        <input type="text" class="form-control" name="password" id="pass"  value="{{ old('password')}}" aria-describedby="passHelp">
+                        <input type="text" class="form-control" name="password" id="pass"  aria-describedby="passHelp">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="confirmPass" class="form-label">
-                            Подтверждение пароля
-                        </label>
-                        <input type="text" class="form-control" name="password_confirmation" id="confirmPass"  value="{{ old('password_confirmation') }}" aria-describedby="passHelp">
-                    </div>
 
                     <button type="submit" class="w-full btn btn-primary btn-acc-group">Отправить</button>
                 </form>
