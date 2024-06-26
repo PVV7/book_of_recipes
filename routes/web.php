@@ -17,14 +17,17 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 //перенаправляет на страницу dashboard, если пользователь уже залогинился
-//Route::get('/register', [RegisterController::class, 'actionIndex'])->middleware('guest')->name('register');
-//Route::post('/register', [RegisterController::class, 'store'])->middleware('guest') ;
+Route::get('/register', [RegisterController::class, 'actionIndex'])->middleware('guest')->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->middleware('guest') ;
 
-Route::get('/register', [RegisterController::class, 'actionIndex'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
+//для отладки, позволяет попадать на страницы дез аутентификации
+//Route::get('/register', [RegisterController::class, 'actionIndex'])->name('register');
+//Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [LoginController::class, 'actionIndex'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 
+//Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
+Route::get('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
 
 Route::get('/dashboard', [DashboardController::class, 'actionIndex'])->middleware('auth')->name('dashboard');
