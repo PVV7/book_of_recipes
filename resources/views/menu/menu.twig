@@ -55,13 +55,12 @@
       <a href="{{ route('register') }}">Register</a>
 {#      <a href="#">Portefolio</a>#}
 
-{#        реализовать выход при помощи post метода#}
-{#        <form method="post" action="{{ route('logout') }}">#}
-{#            <input type="hidden" name="_token" value="{{ csrf_token() }}">#}
-{#            <a href="{{ route('logout') }}">Logout</a>#}
-{#        </form>#}
+        реализовать выход при помощи post метода
+        <form method="post" action="{{ route('logout') }}">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <button type="submit" style="width: 100px; height: 50px" value="Logout"></button>
+        </form>
 
-        <a href="{{ route('logout') }}">Logout</a>
       <div class="animation start-home"></div>
     </nav>
 
