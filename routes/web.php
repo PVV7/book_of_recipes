@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //перенаправляет на страницу dashboard, если пользователь уже залогинился
+
 Route::get('/register', [RegisterController::class, 'actionIndex'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest') ;
 
