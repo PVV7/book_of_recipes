@@ -19,6 +19,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_admin')->default(false);
+
+            $table->bigInteger('recipe_id')->unsigned();
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
 
