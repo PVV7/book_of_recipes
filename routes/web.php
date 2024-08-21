@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,11 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 //перенаправляет на страницу dashboard, если пользователь уже залогинился
+Route::get('/', [MainController::class, 'actionIndex'])->name('main');
 
 Route::get('/register', [RegisterController::class, 'actionIndex'])->middleware('guest')->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->middleware('guest') ;
 
-//для отладки, позволяет попадать на страницы дез аутентификации
+//для отладки, позволяет попадать на страницы без аутентификации
 //Route::get('/register', [RegisterController::class, 'actionIndex'])->name('register');
 //Route::post('/register', [RegisterController::class, 'store']);
 

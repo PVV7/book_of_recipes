@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('is_admin')->default(false);
 
-            $table->bigInteger('recipe_id')->unsigned();
+            $table->bigInteger('recipe_id')->nullable()->default(NULL)->unsigned();
             $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
 
             $table->rememberToken();

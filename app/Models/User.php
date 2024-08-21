@@ -43,4 +43,11 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function recipe(): HasMany
+    {
+        return $this->hasMany(RecipeModel::class);
+    }
+
+
 }
