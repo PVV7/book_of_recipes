@@ -2,12 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\DataTransferObjects\RecipeDTO;
+use App\Http\Services\ViewService;
 use Illuminate\Http\Request;
+
 
 class MainController extends Controller
 {
-    public function actionIndex()
+    public function actionIndex(Request $request, ViewService $viewService)
     {
-        return view('main');
+        $dto = new RecipeDTO(
+            $request->user_id,
+            $request->category_id,
+            $request->name,
+            $request->cost,
+        );
+
+
+        return view('main', [
+            'recipes' => $viewService->getRecipes($dto)
+        ]);
     }
 }

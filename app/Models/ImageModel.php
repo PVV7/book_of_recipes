@@ -5,6 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
+/**
+ * @property string alt
+ * @property string path
+ * @property int recipe_id
+ */
+
 class ImageModel extends Model
 {
     use HasFactory;
@@ -16,7 +23,7 @@ class ImageModel extends Model
      */
     protected $table = 'images';
 
-    public function recipe(): BelongsTo
+    public function recipe()
     {
         return $this->belongsTo(RecipeModel::class);
     }

@@ -33,7 +33,7 @@ class RecipeModel extends Model
 
     public function image(): HasMany
     {
-        return $this->hasMany(ImageModel::class);
+        return $this->hasMany(ImageModel::class, 'recipe_id');
     }
 
     public function category(): BelongsTo
