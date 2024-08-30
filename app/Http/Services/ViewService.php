@@ -12,7 +12,7 @@ class ViewService
 {
     public function getRecipes(RecipeDTO $dto)
     {
-        //проблема с получением изображений с модели ImageModel
+
         $recipes = RecipeModel::query()
             ->with('image')
             ->when($dto->user_id, function($query, $value){
