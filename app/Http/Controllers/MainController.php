@@ -19,8 +19,9 @@ class MainController extends Controller
         );
 
 
-        return view('main', [
-            'recipes' => $viewService->getRecipes($dto)
+        return view('main_new', [
+            'recipes' => $viewService->getRecipes($dto),
+            'categories_selector' => $viewService->getCategoriesSelector()
         ]);
     }
 }

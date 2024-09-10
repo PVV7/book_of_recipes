@@ -1,0 +1,69 @@
+{% extends 'menu/menu_new' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+{#    <link rel="stylesheet" href="{{ asset('media/css/style.css') }}">#}
+{% endblock %}
+
+
+
+{% block content %}
+    <main class="blog">
+        <div class="container">
+            <h1 class="edica-page-title" data-aos="fade-up">Example</h1>
+            <section class="featured-posts-section">
+                <div class="row">
+                    {% for item in recipes %}
+                        <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
+                            <a href="#!" class="blog-post-permalink">
+                                <div class="blog-post-thumbnail-wrapper">
+                                    <img src="assets/images/blog_1.jpg" alt="blog post">
+                                </div>
+                                <p class="blog-post-category">{{ item.name }}</p>
+                                <h6 class="blog-post-title">Front becomes an official Instagram Marketing Partner</h6>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="widget widget-post-list">
+                    <h5 class="widget-title">Post List</h5>
+                    <ul class="post-list">
+                        <li class="post">
+                            <a href="#!" class="post-permalink media">
+                                <img src="assets/images/blog_widget_1.jpg" alt="blog post">
+                                <div class="media-body">
+                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="post">
+                            <a href="#!" class="post-permalink media">
+                                <img src="assets/images/blog_widget_2.jpg" alt="blog post">
+                                <div class="media-body">
+                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="post">
+                            <a href="#!" class="post-permalink media">
+                                <img src="assets/images/blog_widget_3.jpg" alt="blog post">
+                                <div class="media-body">
+                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="post">
+                            <a href="#!" class="post-permalink media">
+                                <img src="assets/images/blog_widget_4.jpg" alt="blog post">
+                                <div class="media-body">
+                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+    </main>
+{% endblock %}

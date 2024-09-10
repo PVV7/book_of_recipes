@@ -4,8 +4,10 @@ namespace App\Http\Services;
 
 use App\Http\Controllers\Controller;
 use App\Http\DataTransferObjects\RecipeDTO;
+use App\Models\CategoryModel;
 use App\Models\ImageModel;
 use App\Models\RecipeModel;
+use MoonShine\Tests\Fixtures\Models\Category;
 
 
 class ViewService
@@ -38,4 +40,18 @@ class ViewService
 
         return $recipes;
     }
+
+    public function getCategoriesSelector()
+    {
+        //добавить нулевоке знаение для "все"
+        $categories = CategoryModel::query()
+            ->get(['id', 'name'])
+            ->map(fn($item) => [
+                'id' => $item->id,
+                'name' => $item->name,
+            ]);
+
+        return $categories;
+    }
+
 }
