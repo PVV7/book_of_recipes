@@ -11,9 +11,10 @@ class MainController extends Controller
 {
     public function actionIndex(Request $request, ViewService $viewService)
     {
+
         $dto = new RecipeDTO(
             $request->user_id,
-            $request->category_id,
+            $request->types_meals,
             $request->name,
             $request->cost,
         );

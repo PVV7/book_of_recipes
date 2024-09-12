@@ -10,7 +10,7 @@ class DashboardController extends Controller
     public function actionIndex()
     {
         $temp = VideoModel::all()->toArray();
-        dd($temp);
+
         return view('auth.dashboard');
     }
 }

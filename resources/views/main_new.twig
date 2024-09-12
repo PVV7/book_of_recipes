@@ -3,67 +3,65 @@
 {% block stylesheets %}
     {{ parent() }}
 
-{#    <link rel="stylesheet" href="{{ asset('media/css/style.css') }}">#}
+    <link rel="stylesheet" href="{{ asset('media/css/style.css') }}">
+
+    <style>
+        .container-recipes{
+            max-width: 66.66%;
+        }
+    </style>
+
 {% endblock %}
 
 
 
 {% block content %}
     <main class="blog">
+        <h1 class="edica-page-title" data-aos="fade-up">Example</h1>
         <div class="container">
-            <h1 class="edica-page-title" data-aos="fade-up">Example</h1>
-            <section class="featured-posts-section">
-                <div class="row">
-                    {% for item in recipes %}
-                        <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
-                            <a href="#!" class="blog-post-permalink">
-                                <div class="blog-post-thumbnail-wrapper">
-                                    <img src="assets/images/blog_1.jpg" alt="blog post">
+            <div class="row" style="display: grid; grid-template-columns: 66.66% 33.33%;">
+                    <section class="featured-posts-section">
+                        <div class="row">
+                            {% for item in recipes %}
+                                <div class="col-md-4 fetured-post blog-post" data-aos="fade-right">
+                                    <a href="#!" class="blog-post-permalink">
+                                        <div class="blog-post-thumbnail-wrapper">
+                                            <img src="assets/images/blog_1.jpg" alt="blog post">
+                                        </div>
+                                        <p class="blog-post-category">{{ item.name }}</p>
+                                        <h6 class="blog-post-title">Front becomes an official Instagram Marketing Partner</h6>
+                                    </a>
                                 </div>
-                                <p class="blog-post-category">{{ item.name }}</p>
-                                <h6 class="blog-post-title">Front becomes an official Instagram Marketing Partner</h6>
-                            </a>
+                            {% endfor %}
                         </div>
-                    {% endfor %}
-                </div>
-                <div class="widget widget-post-list">
-                    <h5 class="widget-title">Post List</h5>
-                    <ul class="post-list">
-                        <li class="post">
-                            <a href="#!" class="post-permalink media">
-                                <img src="assets/images/blog_widget_1.jpg" alt="blog post">
-                                <div class="media-body">
-                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="post">
-                            <a href="#!" class="post-permalink media">
-                                <img src="assets/images/blog_widget_2.jpg" alt="blog post">
-                                <div class="media-body">
-                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="post">
-                            <a href="#!" class="post-permalink media">
-                                <img src="assets/images/blog_widget_3.jpg" alt="blog post">
-                                <div class="media-body">
-                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="post">
-                            <a href="#!" class="post-permalink media">
-                                <img src="assets/images/blog_widget_4.jpg" alt="blog post">
-                                <div class="media-body">
-                                    <h6 class="post-title">Front becomes an official Instagram Marketing Partner</h6>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+                    </section>
 
+                <form method="get" action="{{ route('main') }}">
+                        <div class="container-selectors widget-post-list">
+                            <div class="sticky-div" style="width: 100%; height: 400px; margin-left: 20px; position: sticky !important; top:0px;">
+
+                                <div class="selector-container">
+                                    <p class="edica-blog-post-meta aos-init" >
+                                        Виды приема пищи
+                                    </p>
+                                    <select class="form-control" style="height: 55px" id="types_meals" name="types_meals">
+                                        <option value="0">Все</option>
+                                        {% for item in categories_selector %}
+                                            {% set selected = '' %}
+                                            <option value="{{ item.id }}">{{ item.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+
+
+                                <p>&nbsp;</p>
+                                <input type="submit" class="btn btn-success" value="Применить"/>
+
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
     </main>
 {% endblock %}
