@@ -3,13 +3,9 @@
 {% block stylesheets %}
     {{ parent() }}
 
-    <link rel="stylesheet" href="{{ asset('media/css/style.css') }}">
+{#    <script src="{{ asset("jQuery/jquery-3.7.1.slim.min.js") }}"></script>#}
 
-    <style>
-        .container-recipes{
-            max-width: 66.66%;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('media/css/style.css') }}">
 
 {% endblock %}
 
@@ -17,6 +13,7 @@
 
 {% block content %}
     <main class="blog">
+
         <h1 class="edica-page-title" data-aos="fade-up">Example</h1>
         <div class="container">
             <div class="row" style="display: grid; grid-template-columns: 66.66% 33.33%;">
@@ -29,6 +26,7 @@
                                             <img src="assets/images/blog_1.jpg" alt="blog post">
                                         </div>
                                         <p class="blog-post-category">{{ item.name }}</p>
+                                        <p class="blog-post-category">{{ item.cost }} р.</p>
                                         <h6 class="blog-post-title">Front becomes an official Instagram Marketing Partner</h6>
                                     </a>
                                 </div>
@@ -37,9 +35,9 @@
                     </section>
 
                 <form method="get" action="{{ route('main') }}">
-                        <div class="container-selectors widget-post-list">
-                            <div class="sticky-div" style="width: 100%; height: 400px; margin-left: 20px; position: sticky !important; top:0px;">
-
+                        <div class="container-selectors widget-post-list" style="position: sticky !important; top:1px;">
+                            <div class="sticky-div" style="width: 100%; height: 400px; margin-left: 20px;">
+                                <h3 class="faq-section-text">Фильтры</h3>
                                 <div class="selector-container">
                                     <p class="edica-blog-post-meta aos-init" >
                                         Виды приема пищи
@@ -53,7 +51,19 @@
                                     </select>
                                 </div>
 
+                                <div class="selector-container">
+                                    <p class="edica-blog-post-meta aos-init" >
+                                        Стоимость до:
+                                    </p>
+                                    <input type="number" class="form-control" name="cost" />
+                                </div>
 
+                                <div class="selector-container">
+                                    <p class="edica-blog-post-meta aos-init" >
+                                        Название блюда:
+                                    </p>
+                                    {% include 'select2.twig' %}
+                                </div>
 
                                 <p>&nbsp;</p>
                                 <input type="submit" class="btn btn-success" value="Применить"/>
@@ -64,4 +74,34 @@
             </div>
         </div>
     </main>
+
+        <script>
+            $(document).ready(function() {
+                $('.js-example-basic-single').select2();
+            });
+        </script>
+
+{#    <script>#}
+{#        if (window.jQuery) {#}
+{#            console.log('YES');#}
+{#        } else {#}
+{#            console.log('NO');#}
+{#        }#}
+{#    </script>#}
+
 {% endblock %}
+
+{% block javascripts %}
+
+{#    <script>#}
+{#        if (window.jQuery) {#}
+{#            console.log('YES');#}
+{#        } else {#}
+{#            console.log('NO');#}
+{#        }#}
+{#    </script>#}
+
+
+{% endblock %}
+
+

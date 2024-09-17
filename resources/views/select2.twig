@@ -1,0 +1,40 @@
+{#{% extends 'menu/menu_new' %}#}
+
+{% block stylesheets %}
+
+{#    сделать шаблоном и вставить в основной main#}
+
+{#    <script src="{{ asset("jQuery/jquery-3.7.1.slim.min.js") }}"></script>#}
+
+    <link rel="stylesheet" href="{{ asset('media/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('media/css/select2/select2.min.css') }}">
+
+    <script src="{{ asset('scripts/select2/select2.min.js')}}"></script>
+
+
+{% endblock %}
+
+
+{% block content %}
+    <select class="js-example-basic-single form-control" name="state">
+        {% for item in items %}
+            <option value="{{ item.id }}">{{ item.name }}</option>
+        {% endfor %}
+
+{#        <option value="AL">Alabama</option>#}
+{#        <option value="WY">Wyoming</option>#}
+    </select>
+
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+
+{% endblock %}
+
+

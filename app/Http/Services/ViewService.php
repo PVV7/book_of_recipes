@@ -20,7 +20,7 @@ class ViewService
             ->when($dto->user_id, function($query, $value){
                 $query->where('user_id', $value);
             })
-            ->when($dto->category_id, function($query, $value){
+            ->when($dto->types_meals, function($query, $value){
                 $query->where('category_id', $value);
             })
             ->when($dto->cost, function ($query, $value){
@@ -43,7 +43,6 @@ class ViewService
 
     public function getCategoriesSelector()
     {
-        //добавить нулевоке знаение для "все"
         $categories = CategoryModel::query()
             ->get(['id', 'name'])
             ->map(fn($item) => [
@@ -53,5 +52,18 @@ class ViewService
 
         return $categories;
     }
+
+    public function getDishes()
+    {
+        $dishes = RecipeModel::query()
+            ->get(['id','name'])
+            ->map(fn($item) => [
+                'id' => $item->id,
+                'name' => $item->name,
+            ]);
+
+        return $dishes;
+    }
+
 
 }

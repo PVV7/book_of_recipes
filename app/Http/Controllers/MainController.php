@@ -11,7 +11,6 @@ class MainController extends Controller
 {
     public function actionIndex(Request $request, ViewService $viewService)
     {
-
         $dto = new RecipeDTO(
             $request->user_id,
             $request->types_meals,
@@ -19,10 +18,12 @@ class MainController extends Controller
             $request->cost,
         );
 
+//        return view('main_new', [
+//            'recipes' => $viewService->getRecipes($dto),
+//            'categories_selector' => $viewService->getCategoriesSelector(),
+//            'names_dishes' => $viewService->getDishes(),
+//        ]);
 
-        return view('main_new', [
-            'recipes' => $viewService->getRecipes($dto),
-            'categories_selector' => $viewService->getCategoriesSelector()
-        ]);
+        return view('select2');
     }
 }
