@@ -14,27 +14,15 @@
 
 {% endblock %}
 
-
 {% block content %}
-    <select class="js-example-basic-single form-control" name="state">
-        {% for item in items %}
-            <option value="{{ item.id }}">{{ item.name }}</option>
-        {% endfor %}
 
-{#        <option value="AL">Alabama</option>#}
-{#        <option value="WY">Wyoming</option>#}
-    </select>
+        <select class="js-example-basic-single form-control" name="dishes" id="dishes">
+            {% for item in dishes %}
+                <option value="{{ item.id }}" {{ ((old('dishes', dto.dishes) == item.id) ? 'selected' : '') }}>{{ item.name }}</option>
+            {% endfor %}
+        </select>
 
 {% endblock %}
 
-{% block javascripts %}
-
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
-        });
-    </script>
-
-{% endblock %}
 
 

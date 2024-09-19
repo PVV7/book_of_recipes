@@ -26,11 +26,11 @@ class ViewService
             ->when($dto->cost, function ($query, $value){
                 $query->where('cost', '<=' ,$value);
             })
-            ->when($dto->name, function ($query, $value){
-                $query->where('name', 'like', '%'.$value.'%');
+            ->when($dto->dishes, function ($query, $value){
+                $query->where('id', $value);
             })
-            ->get()
-            ->map(fn($item) => [
+            ->paginate(20)
+            ->through(fn($item) => [
                 'name' => $item->name,
                 'title' => $item->title,
                 'image' => $item->image->pluck('path'),
@@ -62,6 +62,7 @@ class ViewService
                 'name' => $item->name,
             ]);
 
+        $dishes->prepend(['id' => null, 'name' => 'все']);
         return $dishes;
     }
 

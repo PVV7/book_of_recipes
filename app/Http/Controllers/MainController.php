@@ -11,19 +11,21 @@ class MainController extends Controller
 {
     public function actionIndex(Request $request, ViewService $viewService)
     {
+
         $dto = new RecipeDTO(
             $request->user_id,
             $request->types_meals,
-            $request->name,
+            $request->dishes,
             $request->cost,
         );
 
-//        return view('main_new', [
-//            'recipes' => $viewService->getRecipes($dto),
-//            'categories_selector' => $viewService->getCategoriesSelector(),
-//            'names_dishes' => $viewService->getDishes(),
-//        ]);
 
-        return view('select2');
+        return view('main_new', [
+            'recipes' => $viewService->getRecipes($dto),
+            'categories_selector' => $viewService->getCategoriesSelector(),
+            'dishes' => $viewService->getDishes(),
+            'dto' => $dto,
+        ]);
+
     }
 }
