@@ -24,31 +24,45 @@
     <main class="blog-post">
         <div class="container">
             <h1 class="edica-page-title" data-aos="fade-up">{{ recipe.name }}</h1>
+            <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">
+                Рецепт добавлен {{ recipe.created_at|date('d.m.yy') }}
+                Стоимость {{ recipe.cost }}р.
+            </p>
 
-
-
-            <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">Written by Richard Searls• February 1, 2019• 6:31 pm• Featured • 4 Comments</p>
             <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
+{#                разобраться как хранить картинки в бд#}
                 <img src="assets/images/blog-post-featured-img.png" alt="featured image" class="w-100">
             </section>
+
+
             <section class="post-content">
                 <div class="row">
                     <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs. The passage is at attributed to an unknown typesetters in 1the 5th century who is thought scrambled with all parts of Cicero’s De. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs</p>
-                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs. The passage is at attributed to an unknown typesetters in 1the 5th century who is thought scrambled with all parts of Cicero’s De. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs</p>
+                        <p>{{ recipe.title }}</p>
                     </div>
                 </div>
-                <div class="row mb-5">
-                    <div class="col-md-4 mb-3" data-aos="fade-right">
-                        <img src="assets/images/blog_post_1.jpg" alt="blog post" class="img-fluid">
+                <div class="row">
+                    <div class="col-lg-9 mx-auto" data-aos="fade-up">
+                        <h1>Видео</h1>
+                        <p>{{ recipe.link }}</p>
                     </div>
-                    <div class="col-md-4 mb-3" data-aos="fade-up">
-                        <img src="assets/images/blog_post_2.jpg" alt="blog post" class="img-fluid">
-                    </div>
-                    <div class="col-md-4 mb-3" data-aos="fade-left">
-                        <img src="assets/images/blog_post_3.jpg" alt="blog post" class="img-fluid">
+
+                    <div class="col-lg-9 mx-auto" data-aos="fade-up">
+                        <h1>Видео</h1>
+                        <p>{{ recipe.link }}</p>
                     </div>
                 </div>
+{#                <div class="row mb-5">#}
+{#                    <div class="col-md-4 mb-3" data-aos="fade-right">#}
+{#                        <img src="assets/images/blog_post_1.jpg" alt="blog post" class="img-fluid">#}
+{#                    </div>#}
+{#                    <div class="col-md-4 mb-3" data-aos="fade-up">#}
+{#                        <img src="assets/images/blog_post_2.jpg" alt="blog post" class="img-fluid">#}
+{#                    </div>#}
+{#                    <div class="col-md-4 mb-3" data-aos="fade-left">#}
+{#                        <img src="assets/images/blog_post_3.jpg" alt="blog post" class="img-fluid">#}
+{#                    </div>#}
+{#                </div>#}
             </section>
         </div>
     </main>

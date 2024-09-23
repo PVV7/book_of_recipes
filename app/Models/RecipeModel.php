@@ -28,7 +28,7 @@ class RecipeModel extends Model
 
     public function video(): HasMany
     {
-        return $this->hasMany(VideoModel::class);
+        return $this->hasMany(VideoModel::class, 'recipe_id');
     }
 
     public function image(): HasMany

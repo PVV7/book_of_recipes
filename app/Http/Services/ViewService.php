@@ -44,11 +44,8 @@ class ViewService
 
     public function getRecipe(int $recipeId)
     {
-        $recipe = RecipeModel::query()
-            ->with('image')
-            ->where('id', $recipeId)
-            ->get()->collect();
-
+        $recipe = RecipeModel::with(['image', 'video'])
+            ->findOrFail($recipeId);
         return $recipe;
     }
 

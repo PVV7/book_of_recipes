@@ -31,9 +31,10 @@ class MainController extends Controller
 
     public function actionSingleRecipe(int $id, ViewService $viewService)
     {
+        $temp = $viewService->getRecipe($id);
 
         return view('recipe_single',[
-            'recipe' => $viewService->getRecipe($id)[0],
+            'recipe' => $viewService->getRecipe($id),
         ]);
     }
 }

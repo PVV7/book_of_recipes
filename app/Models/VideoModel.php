@@ -16,7 +16,7 @@ class VideoModel extends Model
      */
     protected $table = 'videos';
 
-    public function recipe(): BelongsTo
+    public function recipe()
     {
         return $this->belongsTo(RecipeModel::class);
     }
