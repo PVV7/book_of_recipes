@@ -1,0 +1,73 @@
+{% extends 'menu/menu_new' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('media/css/style.css') }}">
+
+{#    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">#}
+{#    <link rel="stylesheet" href="assets/vendors/font-awesome/css/all.min.css">#}
+{#    <link rel="stylesheet" href="assets/vendors/aos/aos.css">#}
+{#    <link rel="stylesheet" href="assets/css/style.css">#}
+{#    <script src="assets/vendors/jquery/jquery.min.js"></script>#}
+{#    <script src="assets/js/loader.js"></script>#}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div class="edica-loader"></div>
+
+    <main class="blog-post">
+        <div class="container">
+            <h1 class="edica-page-title" data-aos="fade-up">{{ recipe.name }}</h1>
+
+
+
+            <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">Written by Richard Searls• February 1, 2019• 6:31 pm• Featured • 4 Comments</p>
+            <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
+                <img src="assets/images/blog-post-featured-img.png" alt="featured image" class="w-100">
+            </section>
+            <section class="post-content">
+                <div class="row">
+                    <div class="col-lg-9 mx-auto" data-aos="fade-up">
+                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs. The passage is at attributed to an unknown typesetters in 1the 5th century who is thought scrambled with all parts of Cicero’s De. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs</p>
+                        <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs. The passage is at attributed to an unknown typesetters in 1the 5th century who is thought scrambled with all parts of Cicero’s De. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs</p>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md-4 mb-3" data-aos="fade-right">
+                        <img src="assets/images/blog_post_1.jpg" alt="blog post" class="img-fluid">
+                    </div>
+                    <div class="col-md-4 mb-3" data-aos="fade-up">
+                        <img src="assets/images/blog_post_2.jpg" alt="blog post" class="img-fluid">
+                    </div>
+                    <div class="col-md-4 mb-3" data-aos="fade-left">
+                        <img src="assets/images/blog_post_3.jpg" alt="blog post" class="img-fluid">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+
+
+    <script src="assets/vendors/popper.js/popper.min.js"></script>
+    <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/vendors/aos/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000
+        });
+    </script>
+
+{% endblock %}
+
+
+
+

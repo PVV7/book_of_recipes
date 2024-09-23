@@ -28,4 +28,12 @@ class MainController extends Controller
         ]);
 
     }
+
+    public function actionSingleRecipe(int $id, ViewService $viewService)
+    {
+
+        return view('recipe_single',[
+            'recipe' => $viewService->getRecipe($id)[0],
+        ]);
+    }
 }

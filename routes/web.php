@@ -25,6 +25,9 @@ Route::post('/login', [LoginController::class, 'store']);
 
 Route::post('/logout', [LoginController::class, 'destroy'])->middleware('auth')->name('logout');
 
+
+Route::get('/recipe-single&uid={id}', [MainController::class, 'actionSingleRecipe'])->name('recipe-single');
+
 Route::get('/dashboard', [DashboardController::class, 'actionIndex'])->middleware('auth')->name('dashboard');
 
 Route::get('/forgot-password', [ForgotPasswordController::class, 'actionIndex'])->middleware('guest')->name('password.request');

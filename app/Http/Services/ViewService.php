@@ -31,6 +31,7 @@ class ViewService
             })
             ->paginate(20)
             ->through(fn($item) => [
+                'id' => $item->id,
                 'name' => $item->name,
                 'title' => $item->title,
                 'image' => $item->image->pluck('path'),
@@ -39,6 +40,16 @@ class ViewService
 
 
         return $recipes;
+    }
+
+    public function getRecipe(int $recipeId)
+    {
+        $recipe = RecipeModel::query()
+            ->with('image')
+            ->where('id', $recipeId)
+            ->get()->collect();
+
+        return $recipe;
     }
 
     public function getCategoriesSelector()
