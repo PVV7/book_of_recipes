@@ -7,11 +7,13 @@ use App\Http\DataTransferObjects\RecipeDTO;
 use App\Models\CategoryModel;
 use App\Models\ImageModel;
 use App\Models\RecipeModel;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Collection;
 
 
 class ViewService
 {
-    public function getRecipes(RecipeDTO $dto)
+    public function getRecipes(RecipeDTO $dto):object
     {
 
         $recipes = RecipeModel::query()
@@ -37,11 +39,10 @@ class ViewService
                 'cost' => $item->cost,
             ]);
 
-
         return $recipes;
     }
 
-    public function getRecipe(int $recipeId)
+    public function getRecipe(int $recipeId):array
     {
         $recipe = RecipeModel::query()
             ->with(['image:recipe_id,path', 'video:recipe_id,link'])
@@ -51,7 +52,7 @@ class ViewService
         return $recipe;
     }
 
-    public function getCategoriesSelector()
+    public function getCategoriesSelector(): Collection
     {
         $categories = CategoryModel::query()
             ->get(['id', 'name'])
@@ -63,7 +64,7 @@ class ViewService
         return $categories;
     }
 
-    public function getDishes()
+    public function getDishes():Collection
     {
         $dishes = RecipeModel::query()
             ->get(['id','name'])

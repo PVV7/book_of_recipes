@@ -19,7 +19,6 @@ class MainController extends Controller
             $request->cost,
         );
 
-
         return view('main_new', [
             'recipes' => $viewService->getRecipes($dto),
             'categories_selector' => $viewService->getCategoriesSelector(),
@@ -31,9 +30,6 @@ class MainController extends Controller
 
     public function actionSingleRecipe(int $id, ViewService $viewService)
     {
-        $temp = $viewService->getRecipe($id);
-//        dd($temp);
-
         return view('recipe_single',[
             'recipe' => $viewService->getRecipe($id),
         ]);
