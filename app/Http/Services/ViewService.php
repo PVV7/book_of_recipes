@@ -7,7 +7,6 @@ use App\Http\DataTransferObjects\RecipeDTO;
 use App\Models\CategoryModel;
 use App\Models\ImageModel;
 use App\Models\RecipeModel;
-use MoonShine\Tests\Fixtures\Models\Category;
 
 
 class ViewService
@@ -44,8 +43,11 @@ class ViewService
 
     public function getRecipe(int $recipeId)
     {
-        $recipe = RecipeModel::with(['image', 'video'])
-            ->findOrFail($recipeId);
+        $recipe = RecipeModel::query()
+            ->with(['image:recipe_id,path', 'video:recipe_id,link'])
+            ->findOrFail($recipeId)
+            ->toArray();
+
         return $recipe;
     }
 

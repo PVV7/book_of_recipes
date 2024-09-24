@@ -43,13 +43,17 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                        <h1>Видео</h1>
-                        <p>{{ recipe.link }}</p>
+                        <h1>Фото</h1>
+                        {% for img in recipe.image %}
+                            <p>{{ img.path }}</p>
+                        {% endfor %}
                     </div>
 
                     <div class="col-lg-9 mx-auto" data-aos="fade-up">
                         <h1>Видео</h1>
-                        <p>{{ recipe.link }}</p>
+                        {% for video in recipe.video %}
+                            <p>{{ video.link }}</p>
+                        {% endfor %}
                     </div>
                 </div>
 {#                <div class="row mb-5">#}
