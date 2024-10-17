@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\MoonShine\Resources\CategoriesResource;
+use App\MoonShine\Resources\RecipesResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\MoonShine;
 use MoonShine\Menu\MenuGroup;
@@ -23,8 +25,8 @@ class MoonShineServiceProvider extends ServiceProvider
                     ->icon('bookmark'),
             ])->translatable(),
 
-            MenuItem::make('Documentation', 'https://laravel.com')
-                ->badge(fn() => 'Check'),
+            MenuItem::make('Категории', new CategoriesResource())->icon('heroicons.square-3-stack-3d'),
+            MenuItem::make('Рецепты', new RecipesResource())->icon('heroicons.book-open'),
         ]);
     }
 }
